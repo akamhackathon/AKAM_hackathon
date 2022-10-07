@@ -4,7 +4,7 @@ import com.ryan.project.entity.Employee
 import com.ryan.project.utils.Resource
 
 interface AuthRepo {
-        suspend fun register(email: String, username: String, password: String): Resource<Employee>
+        suspend fun register(data: Employee): Resource<Employee>
 
         suspend fun login(email: String, password: String): Resource<Employee>
 

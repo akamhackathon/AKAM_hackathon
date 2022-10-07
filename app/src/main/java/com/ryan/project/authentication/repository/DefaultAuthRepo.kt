@@ -1,15 +1,25 @@
 package com.ryan.project.authentication.repository
 
+import com.project.findme.utils.safeCall
+import com.ryan.project.api.MainApi
 import com.ryan.project.entity.Employee
 import com.ryan.project.utils.Resource
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class DefaultAuthRepo: AuthRepo {
+class DefaultAuthRepo
+@Inject
+constructor(
+    private val mainApi: MainApi
+) : AuthRepo {
     override suspend fun register(
-        email: String,
-        username: String,
-        password: String
-    ): Resource<Employee> {
-        TODO("Not yet implemented")
+        data: Employee
+    ): Resource<Employee> = withContext(Dispatchers.IO) {
+        safeCall {
+            val result = mainApi.registerEmployee(data)
+            Resource.Success(result.body()!!)
+        }
     }
 
     override suspend fun login(email: String, password: String): Resource<Employee> {

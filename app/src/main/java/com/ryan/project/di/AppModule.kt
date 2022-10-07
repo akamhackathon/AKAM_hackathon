@@ -32,7 +32,7 @@ object AppModule {
     @Singleton
     @Provides
     fun provideOkHttpClient() = if (BuildConfig.DEBUG){
-        val loggingInterceptor =HttpLoggingInterceptor()
+        val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
@@ -58,7 +58,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideApiHelper(defaultApi: DefaultApi) = defaultApi as MainApi
+    fun provideApiHelper(defaultApi: DefaultApi): MainApi = defaultApi
 
     @Singleton
     @Provides

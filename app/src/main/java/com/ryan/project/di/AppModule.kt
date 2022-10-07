@@ -5,7 +5,7 @@ import androidx.viewbinding.BuildConfig
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
-import com.project.findme.utils.Constants
+import com.ryan.project.utils.Constants
 import com.ryan.project.R
 import com.ryan.project.api.ApiService
 import com.ryan.project.api.DefaultApi

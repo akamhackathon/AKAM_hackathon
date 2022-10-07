@@ -1,5 +1,7 @@
 package com.project.findme.utils
 
+import com.ryan.project.utils.Resource
+
 inline fun <T> safeCall(action:() -> Resource<T>): Resource<T> {
     return try{
         action()

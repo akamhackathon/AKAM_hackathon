@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
     }
 
     private fun hasLocationPermission() =
+        //comment
         EasyPermissions.hasPermissions(
             this,
             Manifest.permission.ACCESS_FINE_LOCATION

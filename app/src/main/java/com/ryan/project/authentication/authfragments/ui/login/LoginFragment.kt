@@ -1,10 +1,12 @@
 package com.ryan.project.authentication.authfragments.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.ryan.project.MainActivity
 import com.ryan.project.R
 import com.ryan.project.databinding.FragmentLoginBinding
 import com.ryan.project.utils.EventObserver
@@ -83,7 +85,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 etEmail.setText("")
                 etPassword.setText("")
             }
-
+            Intent(requireContext(), MainActivity::class.java).also {
+                startActivity(it)
+                requireActivity().finish()
+            }
             snackbar("Logged in successfully!!")
         })
     }

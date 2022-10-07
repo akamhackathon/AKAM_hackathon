@@ -35,9 +35,9 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         bottomNavBar = findViewById(R.id.main_bottom_nav)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val navHostFragmen =
+        val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container_main) as NavHostFragment
-        navController = navHostFragmen.findNavController()
+        navController = navHostFragment.findNavController()
 
         appBarConfig = AppBarConfiguration.Builder(
             setOf(
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         bottomNavBar.setupWithNavController(navController)
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfig)
 
-        requestLocationPermission()
+//        requestLocationPermission()
 
     }
 

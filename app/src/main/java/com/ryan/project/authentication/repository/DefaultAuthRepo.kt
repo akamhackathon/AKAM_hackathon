@@ -58,7 +58,8 @@ class DefaultAuthRepo : AuthRepo {
                     role = "employee",
                     phone_no = contact,
                     photo = byteArray,
-                    isVerified = false
+                    isVerified = false,
+                    department_id = departmentName
                 )
 
                 val result = auth.createUserWithEmailAndPassword(email, DEFAULT_PASSWORD).await()

@@ -7,5 +7,6 @@ data class Employee (
     val role: String = "employee",
     val phone_no: String = "",
     val photo: String = "",
-    val isVerified: Boolean = false
+    val isVerified: Boolean = false,
+    val department_id: String = ""
 )

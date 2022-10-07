@@ -12,5 +12,5 @@ class DefaultApi @Inject constructor(
     ):MainApi{
         override suspend fun getEmployees(): Response<Employees> = apiService.getEmployees()
         override suspend fun registerEmployee(data: Employee): Response<Employee> = apiService.registerUser(data)
-    override suspend fun loginEmployee(data: LoginRf): Response<LoginResponse> = apiService.loginUser(data)
+        override suspend fun loginEmployee(data: LoginRf): Response<LoginResponse> = apiService.loginUser(data)
 }

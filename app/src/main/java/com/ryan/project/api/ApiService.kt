@@ -1,5 +1,6 @@
 package com.ryan.project.api
 
+import android.provider.ContactsContract
 import com.ryan.project.entity.Employee
 import com.ryan.project.entity.Employees
 import com.ryan.project.entity.LoginResponse
@@ -16,6 +17,10 @@ interface ApiService {
     @POST("api/signup")
     suspend fun registerUser(@Body data: Employee): Response<Employee>
 
-    @POST("api/login")
+    @POST("api/signin")
     suspend fun  loginUser(@Body data: LoginRf): Response<LoginResponse>
+
+    @POST("api/forgot-password")
+    suspend fun forgotPass(@Body email: String) : Response<Boolean>
+
 }

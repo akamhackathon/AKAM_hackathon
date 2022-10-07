@@ -72,8 +72,8 @@ object AppModule {
             .error(R.drawable.ic_launcher_background)
             .diskCacheStrategy(DiskCacheStrategy.DATA)
     )
-
-    @Singleton
-    @Provides
-    fun providesAuthRepository(mainApi: MainApi) = DefaultAuthRepo(mainApi) as AuthRepo
+//
+//    @Singleton
+//    @Provides
+//    fun providesAuthRepository(mainApi: MainApi) = DefaultAuthRepo(mainApi) as AuthRepo
 }

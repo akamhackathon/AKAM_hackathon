@@ -10,26 +10,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class DefaultAuthRepo
-@Inject
-constructor(
-    private val mainApi: MainApi
-) : AuthRepo {
-    override suspend fun register(
-        data: Employee
-    ): Resource<Employee> = withContext(Dispatchers.IO) {
-        safeCall {
-            val result = mainApi.registerEmployee(data)
-            Resource.Success(result.body()!!)
-        }
+class DefaultAuthRepo : AuthRepo {
+    override suspend fun register(data: Employee): Resource<Employee> {
+        TODO("Not yet implemented")
     }
 
-    override suspend fun login(email: String, password: String): Resource<LoginResponse> = withContext(Dispatchers.IO) {
-        val data = LoginRf(email, password)
-        safeCall {
-            val result = mainApi.loginEmployee(data)
-            Resource.Success(result.body()!!)
-        }
+    override suspend fun login(email: String, password: String): Resource<LoginResponse> {
+        TODO("Not yet implemented")
     }
 
     override suspend fun forgotPassword(email: String): Resource<Boolean> {
@@ -43,4 +30,5 @@ constructor(
     ): Resource<Boolean> {
         TODO("Not yet implemented")
     }
+
 }

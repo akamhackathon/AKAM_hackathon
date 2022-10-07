@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.ryan.project.mainactivity.mainfragments.ui.dashboard.DashboardFragment"
+        android:label="Dashboard" />
+    <fragment
+        android:id="@+id/fragmentProfile"
+        android:name="com.ryan.project.mainactivity.mainfragments.ui.profile.FragmentProfile"
+        android:label="FragmentProfile" />
+    <fragment
+        android:id="@+id/fragmentMyAttendance"
+        android:name="com.ryan.project.mainactivity.mainfragments.ui.myattendance.FragmentMyAttendance"
+        android:label="My Attedndance" />
+</navigation>

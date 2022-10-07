@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "73334621079",
+    "project_id": "smart-attendance-system-42e75",
+    "storage_bucket": "smart-attendance-system-42e75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:73334621079:android:b8ac484c8fd4512103bad2",
+        "android_client_info": {
+          "package_name": "com.ryan.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "73334621079-bij8uknj0691062grs90krscuu6n07kf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBq2Ahqfbq4baGjF3chdO3p90zbtDDoIts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "73334621079-bij8uknj0691062grs90krscuu6n07kf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

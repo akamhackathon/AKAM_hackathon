@@ -1,11 +1,11 @@
 package com.ryan.project.authentication.authfragments.ui.login
 
-import android.R.attr
 import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.ryan.project.authentication.repository.AuthRepo
 import com.ryan.project.entity.Employee
 import com.ryan.project.utils.Events
 import com.ryan.project.utils.Resource
@@ -19,7 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-
+    private val repository: AuthRepo
 ) : ViewModel() {
 
     private val _loginStatus = MutableLiveData<Events<Resource<Employee>>>()
@@ -53,7 +53,7 @@ class LoginViewModel @Inject constructor(
         _loginStatus.postValue(Events(Resource.Loading()))
 
         viewModelScope.launch(Dispatchers.IO) {
-            val result = repository.loginUser(email, password)
+            val result = repository.login(email, password)
             _loginStatus.postValue(Events(result))
         }
 

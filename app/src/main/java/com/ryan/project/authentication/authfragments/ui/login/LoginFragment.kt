@@ -72,7 +72,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     cvProgress = binding.cvProgress
                 )
             }
-        ) { result ->
+        ) {
             showProgress(
                 activity = requireActivity(),
                 bool = false,

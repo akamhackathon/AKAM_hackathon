@@ -12,8 +12,8 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AuthModule {
 
-    @Singleton
-    @Provides
-    fun providesAuthRepository() = DefaultAuthRepo() as AuthRepo
+//    @Singleton
+//    @Provides
+//    fun providesAuthRepository() = DefaultAuthRepo() as AuthRepo
 
 }

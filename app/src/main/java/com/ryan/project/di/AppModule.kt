@@ -10,6 +10,8 @@ import com.ryan.project.R
 import com.ryan.project.api.ApiService
 import com.ryan.project.api.DefaultApi
 import com.ryan.project.api.MainApi
+import com.ryan.project.authentication.repository.AuthRepo
+import com.ryan.project.authentication.repository.DefaultAuthRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -70,4 +72,8 @@ object AppModule {
             .error(R.drawable.ic_launcher_background)
             .diskCacheStrategy(DiskCacheStrategy.DATA)
     )
+
+    @Singleton
+    @Provides
+    fun providesAuthRepository(mainApi: MainApi) = DefaultAuthRepo(mainApi) as AuthRepo
 }

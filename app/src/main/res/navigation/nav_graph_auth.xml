@@ -2,10 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph_auth"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/registerFragment">
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.ryan.project.authentication.authfragments.ui.login.LoginFragment"
         android:label="Login" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.ryan.project.authentication.authfragments.ui.register.RegisterFragment"
+        android:label="RegisterFragment" />
 </navigation>

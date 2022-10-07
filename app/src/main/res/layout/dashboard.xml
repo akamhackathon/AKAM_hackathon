@@ -1,254 +1,288 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient">
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ImageView3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:padding="5dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundedImageView"
+        app:srcCompat="@drawable/ic_outline_person_24"
+        app:strokeColor="@color/white"
+        app:strokeWidth="2dp" />
 
     <TextView
         android:id="@+id/username_dashboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="John Doe"
         android:textColor="@color/white"
-        android:textSize="90sp"
+        android:textSize="20sp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.312" />
+        app:layout_constraintTop_toBottomOf="@id/ImageView3" />
 
     <TextView
         android:id="@+id/useremail_dashboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="johndoe@xyz.com"
         android:textColor="@color/white"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_dashboard"
-        app:layout_constraintVertical_bias="0.044" />
+        app:layout_constraintTop_toBottomOf="@+id/username_dashboard" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/overtime_dashboard"
-        android:layout_width="650dp"
-        android:layout_height="225dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#36567A"
         app:cardCornerRadius="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/useremail_dashboard"
-        app:layout_constraintVertical_bias="0.092">
+        app:layout_constraintTop_toBottomOf="@+id/useremail_dashboard">
 
-        <ImageButton
-            android:id="@+id/overtime_image_dashboard"
-            android:layout_width="135dp"
-            android:layout_height="120dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="53dp"
-            android:background="#36567A"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/ic_outline_watch_later_24" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="400dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="200dp"
-            android:layout_marginTop="55dp"
-            android:text="Overtime"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="60dp" />
+            <ImageView
+                android:id="@+id/overtime_image_dashboard"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginVertical="25dp"
+                android:layout_marginStart="35dp"
+                android:background="#36567A"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_outline_watch_later_24" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="Overtime"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/overtime_image_dashboard"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/mark_entry_dashoard"
-        android:layout_width="300dp"
-        android:layout_height="250dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="#36567A"
         app:cardCornerRadius="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/overtime_dashboard"
-        app:layout_constraintVertical_bias="0.159">
+        app:layout_constraintWidth_percent="0.37">
 
-        <TextView
-            android:id="@+id/markentry_dashboard"
-            android:layout_width="290dp"
-            android:layout_height="80dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="135dp"
-            android:text="Mark Entry"
-            android:textAlignment="center"
-            android:textColor="@color/white"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            android:textSize="50dp" />
+            <ImageView
+                android:id="@+id/markentry_dashoard"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:background="#36567A"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_check_24" />
 
-        <ImageButton
-            android:id="@+id/imageButton8"
-            android:layout_width="135dp"
-            android:layout_height="120dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
-            android:layout_marginLeft="85dp"
-            android:layout_marginTop="20dp"
-            app:srcCompat="@drawable/ic_baseline_check_24" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:text="Mark entry"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/markentry_dashoard" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/mark_exit_dashboard"
-        android:layout_width="300dp"
-        android:layout_height="250dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
         android:backgroundTint="#36567A"
         app:cardCornerRadius="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.208"
-        app:layout_constraintStart_toEndOf="@+id/mark_entry_dashoard"
         app:layout_constraintTop_toBottomOf="@+id/overtime_dashboard"
-        app:layout_constraintVertical_bias="0.158">
+        app:layout_constraintWidth_percent="0.37">
 
-        <TextView
-            android:id="@+id/markexit_dashboard"
-            android:layout_width="290dp"
-            android:layout_height="80dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            android:layout_marginTop="135dp"
-            android:text="Mark Exit"
-            android:textAlignment="center"
-            android:textColor="@color/white"
+            <ImageView
+                android:id="@+id/markexit_dashboard"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:background="#36567A"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_outline_exit_to_app_24" />
 
-            android:textSize="50dp" />
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:text="Mark exit"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/markexit_dashboard" />
 
-        <ImageButton
-            android:id="@+id/imageButton7"
-            android:layout_width="135dp"
-            android:layout_height="120dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
-            android:layout_marginLeft="85dp"
-            android:layout_marginTop="20dp"
-            app:srcCompat="@drawable/ic_outline_exit_to_app_24" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/manage_leave_dashboard"
-        android:layout_width="300dp"
-        android:layout_height="250dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="#36567A"
         app:cardCornerRadius="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/overtime_dashboard"
-        app:layout_constraintVertical_bias="0.834">
+        app:layout_constraintTop_toBottomOf="@+id/mark_entry_dashoard"
+        app:layout_constraintWidth_percent="0.37">
 
-        <TextView
-            android:id="@+id/manageleave_dashboard"
-            android:layout_width="290dp"
-            android:layout_height="80dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="140dp"
-            android:text="Manage Leave"
-            android:textColor="@color/white"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            android:textSize="40dp" />
+            <ImageView
+                android:id="@+id/manageleave_dashboard"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:background="#36567A"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_outline_edit_note_24" />
 
-        <ImageButton
-            android:id="@+id/imageButton5"
-            android:layout_width="135dp"
-            android:layout_height="120dp"
-            android:scaleType="centerCrop"
-            android:layout_marginLeft="85dp"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/transparent"
-            app:srcCompat="@drawable/ic_outline_edit_note_24" />
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:text="Mark entry"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/manageleave_dashboard" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/field_work_dashboard"
-        android:layout_width="300dp"
-        android:layout_height="250dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
         android:backgroundTint="#36567A"
         app:cardCornerRadius="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
-        app:layout_constraintStart_toEndOf="@+id/manage_leave_dashboard"
-        app:layout_constraintTop_toBottomOf="@+id/overtime_dashboard"
-        app:layout_constraintVertical_bias="0.834">
+        app:layout_constraintTop_toBottomOf="@+id/mark_exit_dashboard"
+        app:layout_constraintWidth_percent="0.37">
 
-        <TextView
-            android:id="@+id/fieldwork_dashboard"
-            android:layout_width="290dp"
-            android:layout_height="80dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="135dp"
-            android:text="Field Work"
-            android:textAlignment="center"
-            android:textColor="@color/white"
 
-            android:textSize="50dp" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <ImageButton
-            android:id="@+id/imageButton6"
-            android:layout_width="135dp"
-            android:layout_height="120dp"
-            android:scaleType="centerCrop"
-            android:layout_marginLeft="85dp"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/transparent"
-            app:srcCompat="@drawable/ic_outline_work_outline_24" />
+            <ImageView
+                android:id="@+id/fieldwork_dashboard"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:background="#36567A"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_outline_work_outline_24" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:text="Mark entry"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fieldwork_dashboard" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
-
-    <ImageButton
-        android:id="@+id/backbutton_dashboard"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@android:color/transparent"
-        android:scaleType="centerCrop"
-
-        app:layout_constraintBottom_toTopOf="@+id/username_dashboard"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.086"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.197"
-        app:srcCompat="@drawable/ic_outline_arrow_back_ios_24" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imageButton3"
-        android:layout_width="310dp"
-        android:layout_height="310dp"
-        android:adjustViewBounds="true"
-        android:padding="5dp"
-        android:background="@android:color/transparent"
-        android:scaleType="centerCrop"
-
-        app:layout_constraintBottom_toTopOf="@+id/username_dashboard"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.656"
-        app:shapeAppearanceOverlay="@style/roundedImageView"
-        app:srcCompat="@drawable/ic_outline_person_24"
-        app:strokeColor="@color/white"
-        app:strokeWidth="4dp" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

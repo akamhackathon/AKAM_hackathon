@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph_auth"
-    app:startDestination="@id/registerFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -12,4 +12,12 @@
         android:id="@+id/registerFragment"
         android:name="com.ryan.project.authentication.authfragments.ui.register.RegisterFragment"
         android:label="RegisterFragment" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.ryan.project.authentication.authfragments.ui.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

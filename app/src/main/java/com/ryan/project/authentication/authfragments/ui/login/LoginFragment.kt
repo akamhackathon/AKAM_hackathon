@@ -83,6 +83,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 etEmail.setText("")
                 etPassword.setText("")
             }
+
             snackbar("Logged in successfully!!")
         })
     }

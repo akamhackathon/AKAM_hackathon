@@ -1,20 +1,33 @@
 package com.ryan.project.authentication.authfragments.ui.register
 
+import android.Manifest
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.RequestManager
+import com.canhub.cropper.CropImageContract
+import com.canhub.cropper.CropImageView
+import com.canhub.cropper.options
 import com.ryan.project.R
 import com.ryan.project.databinding.RegistrationBinding
-import com.ryan.project.utils.EventObserver
-import com.ryan.project.utils.hideKeyboard
-import com.ryan.project.utils.showProgress
-import com.ryan.project.utils.snackbar
+import com.ryan.project.utils.*
+import dagger.hilt.android.AndroidEntryPoint
+import pub.devrel.easypermissions.AppSettingsDialog
+import pub.devrel.easypermissions.EasyPermissions
+import javax.inject.Inject
 
-class RegisterFragment : Fragment(R.layout.registration) {
+@AndroidEntryPoint
+class RegisterFragment : Fragment(R.layout.registration), EasyPermissions.PermissionCallbacks {
 
+    @Inject
+    lateinit var glide: RequestManager
     private lateinit var binding: RegistrationBinding
     private lateinit var viewModel: RegistrationViewModel
+    private var curImageUri: Uri = Uri.EMPTY
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,7 +42,6 @@ class RegisterFragment : Fragment(R.layout.registration) {
             btnRegister.setOnClickListener {
                 hideKeyboard(requireActivity())
                 viewModel.register(
-                    etEmployeeId.text?.trim().toString(),
                     etName.text?.trim().toString(),
                     etEmail.text?.trim().toString(),
                     etPhone.text?.trim().toString(),
@@ -37,11 +49,88 @@ class RegisterFragment : Fragment(R.layout.registration) {
                 )
             }
 
+            imageButton.setOnClickListener {
+                if(hasCameraPermission()){
+                    startCrop()
+                }else{
+                    requestCameraPermission()
+                }
+            }
+
         }
 
     }
 
+    private val cropImage = registerForActivityResult(CropImageContract()) { result ->
+        if (result.isSuccessful) {
+            curImageUri = result.uriContent!!
+            viewModel.setCurrentImageUri(curImageUri)
+        } else {
+            val exception = result.error
+            snackbar(exception.toString())
+        }
+    }
+
+    private fun startCrop() {
+        cropImage.launch(
+            options {
+                setGuidelines(CropImageView.Guidelines.ON)
+                setAspectRatio(1, 1)
+                setCropShape(CropImageView.CropShape.OVAL)
+                setOutputCompressQuality(70)
+                setOutputCompressFormat(Bitmap.CompressFormat.JPEG)
+                setImageSource(includeGallery = true, includeCamera = true)
+            }
+        )
+    }
+
+    private fun hasCameraPermission() =
+        //comment
+        EasyPermissions.hasPermissions(
+            requireContext(),
+            Manifest.permission.CAMERA
+        )
+
+    private fun requestCameraPermission() =
+        EasyPermissions.requestPermissions(
+            this,
+            Constants.RATIONAL_MSG,
+            Constants.PERMISSION_CAMERA_REQUEST_CODE,
+            Manifest.permission.CAMERA
+        )
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
+    }
+
+    override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {
+        snackbar("permission Granted")
+    }
+
+    override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
+        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
+            AppSettingsDialog.Builder(this).build().show()
+        } else {
+            requestCameraPermission()
+        }
+    }
+
     private fun subscribeToObserve() {
+        viewModel.curImageUri.observe(viewLifecycleOwner) {
+            binding.textView.isVisible = it == Uri.EMPTY
+            if (it == Uri.EMPTY) {
+                binding.imageButton.setImageResource(R.drawable.ic_baseline_person_outline_24)
+            } else {
+                curImageUri = it
+                glide.load(curImageUri).into(binding.imageButton)
+            }
+        }
+
         viewModel.registerStatus.observe(viewLifecycleOwner, EventObserver(
             onError = { error ->
                 showProgress(

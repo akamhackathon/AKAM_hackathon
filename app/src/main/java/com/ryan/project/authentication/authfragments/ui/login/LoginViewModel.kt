@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.auth.AuthResult
 import com.ryan.project.authentication.repository.AuthRepo
 import com.ryan.project.entity.Employee
 import com.ryan.project.utils.Events
@@ -22,8 +23,8 @@ class LoginViewModel @Inject constructor(
     private val repository: AuthRepo
 ) : ViewModel() {
 
-    private val _loginStatus = MutableLiveData<Events<Resource<Employee>>>()
-    val loginStatus: LiveData<Events<Resource<Employee>>> = _loginStatus
+    private val _loginStatus = MutableLiveData<Events<Resource<AuthResult>>>()
+    val loginStatus: LiveData<Events<Resource<AuthResult>>> = _loginStatus
 
     fun login(email: String, password: String) {
 
@@ -38,7 +39,7 @@ class LoginViewModel @Inject constructor(
             "emptyEmail"
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             "email"
-        } else if (password.length != 6) {
+        } else if (password.length < 6) {
             "password"
         } else if(matcher.matches()){
             "invalidPassword"

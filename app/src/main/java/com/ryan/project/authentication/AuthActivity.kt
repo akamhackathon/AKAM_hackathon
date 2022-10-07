@@ -27,7 +27,9 @@ class AuthActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
 
         appBarConfiguration = AppBarConfiguration.Builder(
-            setOf()
+            setOf(
+                R.id.splashFragment
+            )
         ).build()
 
         navController = navHostFragment.findNavController()

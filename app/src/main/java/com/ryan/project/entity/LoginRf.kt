@@ -1,6 +1,6 @@
 package com.ryan.project.entity
 
-data class RegisterRf(
+data class LoginRf(
     val email: String = "",
     val password: String = ""
 )

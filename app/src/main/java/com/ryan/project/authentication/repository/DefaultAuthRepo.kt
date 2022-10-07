@@ -3,7 +3,6 @@ package com.ryan.project.authentication.repository
 import com.project.findme.utils.safeCall
 import com.ryan.project.api.MainApi
 import com.ryan.project.entity.Employee
-import com.ryan.project.entity.RegisterRf
 import com.ryan.project.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -15,11 +14,9 @@ constructor(
     private val mainApi: MainApi
 ) : AuthRepo {
     override suspend fun register(
-        email: String,
-        password: String
+        data: Employee
     ): Resource<Employee> = withContext(Dispatchers.IO) {
         safeCall {
-            val data = RegisterRf(email, password)
             val result = mainApi.registerEmployee(data)
             Resource.Success(result.body()!!)
         }

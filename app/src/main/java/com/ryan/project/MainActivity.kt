@@ -7,9 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.ryan.project.utils.Constants.PERMISSION_LOCATION_REQUEST_CODE
 import com.ryan.project.utils.Constants.RATIONAL_MSG
 import com.ryan.project.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
     private lateinit var binding: ActivityMainBinding

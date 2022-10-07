@@ -3,6 +3,8 @@ package com.ryan.project.authentication.repository
 import com.project.findme.utils.safeCall
 import com.ryan.project.api.MainApi
 import com.ryan.project.entity.Employee
+import com.ryan.project.entity.LoginResponse
+import com.ryan.project.entity.LoginRf
 import com.ryan.project.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -22,8 +24,12 @@ constructor(
         }
     }
 
-    override suspend fun login(email: String, password: String): Resource<Employee> {
-        TODO("Not yet implemented")
+    override suspend fun login(email: String, password: String): Resource<LoginResponse> = withContext(Dispatchers.IO) {
+        val data = LoginRf(email, password)
+        safeCall {
+            val result = mainApi.loginEmployee(data)
+            Resource.Success(result.body()!!)
+        }
     }
 
     override suspend fun forgotPassword(email: String): Resource<Boolean> {

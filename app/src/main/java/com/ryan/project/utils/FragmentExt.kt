@@ -1,4 +1,4 @@
-package com.project.findme.utils
+package com.ryan.project.utils
 
 import android.app.Activity
 import android.content.Context

@@ -1,4 +1,4 @@
-package com.project.findme.utils
+package com.ryan.project.utils
 
 sealed class Resource<T>(val data: T? = null, val message: String? = null) {
 

@@ -4,8 +4,8 @@ import android.Manifest
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.project.findme.utils.Constants.PERMISSION_LOCATION_REQUEST_CODE
-import com.project.findme.utils.Constants.RATIONAL_MSG
+import com.ryan.project.utils.Constants.PERMISSION_LOCATION_REQUEST_CODE
+import com.ryan.project.utils.Constants.RATIONAL_MSG
 import com.ryan.project.databinding.ActivityMainBinding
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions

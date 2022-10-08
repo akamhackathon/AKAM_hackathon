@@ -65,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/admin_email_dashboard">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/add_ep_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="41dp"
@@ -117,6 +118,7 @@
         app:layout_constraintTop_toBottomOf="@+id/add_employee">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/request_sheet_tv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="41dp"
@@ -164,6 +166,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/leave_req_tv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="41dp"
@@ -173,12 +176,12 @@
                 android:id="@+id/leav_request"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="15dp"
                 android:layout_marginStart="44dp"
                 android:text="Leave Request"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:layout_marginVertical="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView8"
                 app:layout_constraintTop_toTopOf="parent"
@@ -218,6 +221,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/on_field_attendance_tv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="41dp"
@@ -268,6 +272,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView3">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/overtime_detail_tv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="41dp"
@@ -317,6 +322,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView4">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/employee_list_tv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="41dp"

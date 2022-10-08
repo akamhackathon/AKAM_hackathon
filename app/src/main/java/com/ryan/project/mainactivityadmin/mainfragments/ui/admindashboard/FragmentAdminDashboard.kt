@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ryan.project.R
 import com.ryan.project.databinding.FragmentAdminDashboardBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class FragmentAdminDashboard: Fragment(R.layout.fragment_admin_dashboard) {
+@AndroidEntryPoint
+class FragmentAdminDashboard : Fragment(R.layout.fragment_admin_dashboard) {
 
     private lateinit var binding: FragmentAdminDashboardBinding
 
@@ -17,7 +19,9 @@ class FragmentAdminDashboard: Fragment(R.layout.fragment_admin_dashboard) {
         binding = FragmentAdminDashboardBinding.bind(view)
         binding.apply {
             addEpTv.setOnClickListener {
-                findNavController().navigate(R.id.registerFragment)
+                findNavController().navigate(
+                    FragmentAdminDashboardDirections.actionFragmentAdminDashboardToRegisterFragment2()
+                )
             }
 
             requestSheetTv.setOnClickListener {
@@ -25,7 +29,7 @@ class FragmentAdminDashboard: Fragment(R.layout.fragment_admin_dashboard) {
             }
 
             leaveReqTv.setOnClickListener {
-                findNavController().navigate(R.id.applyLeaveFragment)
+//                findNavController().navigate(R.id.applyLeaveFragment)
             }
 
             onFieldAttendanceTv.setOnClickListener {

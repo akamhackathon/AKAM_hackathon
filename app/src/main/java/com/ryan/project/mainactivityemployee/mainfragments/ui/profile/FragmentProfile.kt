@@ -5,7 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.ryan.project.R
 import com.ryan.project.databinding.FragmentProfileBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FragmentProfile: Fragment(R.layout.fragment_profile) {
     private lateinit var binding: FragmentProfileBinding
 

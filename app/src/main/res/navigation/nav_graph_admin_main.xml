@@ -7,5 +7,13 @@
     <fragment
         android:id="@+id/fragmentAdminDashboard"
         android:name="com.ryan.project.mainactivityadmin.mainfragments.ui.admindashboard.FragmentAdminDashboard"
-        android:label="FragmentAdminDashboard" />
+        android:label="FragmentAdminDashboard" >
+        <action
+            android:id="@+id/action_fragmentAdminDashboard_to_registerFragment2"
+            app:destination="@id/registerFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment2"
+        android:name="com.ryan.project.authentication.authfragments.ui.register.RegisterFragment"
+        android:label="RegisterFragment" />
 </navigation>

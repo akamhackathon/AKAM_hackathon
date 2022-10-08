@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ryan.project.R
 import com.ryan.project.databinding.ManageLeaveBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class ManageLeaveFragment : Fragment(R.layout.fragment_manage_leave) {
+@AndroidEntryPoint
+class ManageLeaveFragment : Fragment(R.layout.manage_leave) {
 
     private lateinit var binding: ManageLeaveBinding
 

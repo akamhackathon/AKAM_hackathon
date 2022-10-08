@@ -5,7 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.ryan.project.R
 import com.ryan.project.databinding.FragmentMyAttendanceBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FragmentMyAttendance: Fragment(R.layout.fragment_my_attendance) {
     private lateinit var binding: FragmentMyAttendanceBinding
 

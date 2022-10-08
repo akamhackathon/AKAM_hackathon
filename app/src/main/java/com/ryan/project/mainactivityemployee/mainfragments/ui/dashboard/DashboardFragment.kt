@@ -13,7 +13,9 @@ import com.ryan.project.R
 import com.ryan.project.databinding.FragmentDashboardBinding
 import com.ryan.project.service.LocationService
 import com.ryan.project.utils.EventObserver
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
     private lateinit var binding: FragmentDashboardBinding
     private lateinit var viewModel: DashboardViewModel

@@ -11,12 +11,13 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ryan.project.databinding.ActivityMainAdminBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivityAdmin : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainAdminBinding
     private lateinit var navController: NavController
-    private lateinit var bottomNavBar: BottomNavigationView
     private lateinit var appBarConfig: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +38,6 @@ class MainActivityAdmin : AppCompatActivity() {
         ).build()
 
         setupActionBarWithNavController(navController, appBarConfig)
-        bottomNavBar.setupWithNavController(navController)
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfig)
 
     }

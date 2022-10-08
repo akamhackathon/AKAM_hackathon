@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.ryan.project.MainActivityAdmin
 import com.ryan.project.MainActivityEmployee
 import com.ryan.project.R
 import com.ryan.project.databinding.FragmentLoginBinding
@@ -97,7 +98,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     )
                 }
             } else {
-                Intent(requireContext(), MainActivityEmployee::class.java).also { intent ->
+                Intent(requireContext(), MainActivityAdmin::class.java).also { intent ->
                     startActivity(intent)
                     requireActivity().finish()
                 }

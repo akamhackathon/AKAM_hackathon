@@ -6,7 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.ryan.project.MainActivity
+import com.ryan.project.MainActivityEmployee
 import com.ryan.project.R
 import com.ryan.project.databinding.FragmentLoginBinding
 import com.ryan.project.utils.EventObserver
@@ -56,13 +56,13 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     "email" -> {
                         binding.etEmail.error = "Enter a valid email"
                     }
-                    "password" -> {
-                        binding.etPassword.error = "Password should be of minimum 6 length"
-                    }
-                    "invalidPassword" -> {
-                        binding.etPassword.error =
-                            "Password should contain atleast 1 Capital letter, 1 special character, 1 number and 1 small letter"
-                    }
+//                    "password" -> {
+//                        binding.etPassword.error = "Password should be of minimum 6 length"
+//                    }
+//                    "invalidPassword" -> {
+//                        binding.etPassword.error =
+//                            "Password should contain atleast 1 Capital letter, 1 special character, 1 number and 1 small letter"
+//                    }
                     else -> snackbar(error)
                 }
             },
@@ -85,10 +85,24 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 etEmail.setText("")
                 etPassword.setText("")
             }
-            Intent(requireContext(), MainActivity::class.java).also {
-                startActivity(it)
-                requireActivity().finish()
+            if (it.role == "employee") {
+                if (it.isVerified) {
+                    Intent(requireContext(), MainActivityEmployee::class.java).also { intent ->
+                        startActivity(intent)
+                        requireActivity().finish()
+                    }
+                } else {
+                    findNavController().navigate(
+                        LoginFragmentDirections.actionLoginFragmentToChangePasswordFragment()
+                    )
+                }
+            } else {
+                Intent(requireContext(), MainActivityEmployee::class.java).also { intent ->
+                    startActivity(intent)
+                    requireActivity().finish()
+                }
             }
+
             snackbar("Logged in successfully!!")
         })
     }

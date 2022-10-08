@@ -14,7 +14,7 @@ interface AuthRepo {
         bitmap: Bitmap
     ): Resource<AuthResult>
 
-    suspend fun login(email: String, password: String): Resource<AuthResult>
+    suspend fun login(email: String, password: String): Resource<Employee>
 
     suspend fun forgotPassword(email: String): Resource<Boolean>
 

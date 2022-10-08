@@ -23,8 +23,8 @@ import java.util.*
 
 class DefaultAuthRepo : AuthRepo {
 
-    val auth = FirebaseAuth.getInstance()
-    val employees = FirebaseFirestore.getInstance().collection("employees")
+    private val auth = FirebaseAuth.getInstance()
+    private val employees = FirebaseFirestore.getInstance().collection("employees")
 
     override suspend fun register(
         name: String,
@@ -70,11 +70,12 @@ class DefaultAuthRepo : AuthRepo {
         }
     }
 
-    override suspend fun login(email: String, password: String): Resource<AuthResult> {
+    override suspend fun login(email: String, password: String): Resource<Employee> {
         return withContext(Dispatchers.IO) {
             safeCall {
                 val result = auth.signInWithEmailAndPassword(email, password).await()
-                Resource.Success(result)
+                val employee = getUser(result.user!!.uid)
+                Resource.Success(employee.data!!)
             }
         }
     }

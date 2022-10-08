@@ -30,7 +30,10 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivityEmployee"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivityAdmin"
             android:exported="false" />
         <activity android:name="com.canhub.cropper.CropImageActivity" />
 

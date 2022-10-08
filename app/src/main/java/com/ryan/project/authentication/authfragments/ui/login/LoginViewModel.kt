@@ -23,27 +23,28 @@ class LoginViewModel @Inject constructor(
     private val repository: AuthRepo
 ) : ViewModel() {
 
-    private val _loginStatus = MutableLiveData<Events<Resource<AuthResult>>>()
-    val loginStatus: LiveData<Events<Resource<AuthResult>>> = _loginStatus
+    private val _loginStatus = MutableLiveData<Events<Resource<Employee>>>()
+    val loginStatus: LiveData<Events<Resource<Employee>>> = _loginStatus
 
     fun login(email: String, password: String) {
 
-        val pattern: Pattern
-
-        val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$"
-
-        pattern = Pattern.compile(PASSWORD_PATTERN)
-        val matcher: Matcher = pattern.matcher(password)
+//        val pattern: Pattern
+//
+//        val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$"
+//
+//        pattern = Pattern.compile(PASSWORD_PATTERN)
+//        val matcher: Matcher = pattern.matcher(password)
 
         val error = if (email.isEmpty()) {
             "emptyEmail"
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             "email"
-        } else if (password.length < 6) {
-            "password"
-        } else if(matcher.matches()){
-            "invalidPassword"
         }
+//        else if (password.length < 6) {
+//            "password"
+//        } else if(matcher.matches()){
+//            "invalidPassword"
+//        }
         else null
 
         error?.let {

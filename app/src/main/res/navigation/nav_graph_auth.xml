@@ -7,7 +7,11 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.ryan.project.authentication.authfragments.ui.login.LoginFragment"
-        android:label="Login" />
+        android:label="Login" >
+        <action
+            android:id="@+id/action_loginFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+    </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.ryan.project.authentication.authfragments.ui.register.RegisterFragment"
@@ -20,4 +24,8 @@
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.ryan.project.authentication.authfragments.ui.changepassword.ChangePasswordFragment"
+        android:label="ChangePasswordFragment" />
 </navigation>

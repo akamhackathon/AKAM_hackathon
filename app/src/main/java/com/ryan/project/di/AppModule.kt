@@ -16,6 +16,14 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+
+    @Singleton
+    @Provides
+    fun providesApplicationContext(
+        @ApplicationContext
+        context: Context
+    ) = context
+
     @Singleton
     @Provides
     fun provideGlideInstance(

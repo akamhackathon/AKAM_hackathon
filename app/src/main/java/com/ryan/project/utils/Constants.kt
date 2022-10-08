@@ -7,6 +7,9 @@ object Constants {
     const val PERMISSION_CAMERA_REQUEST_CODE = 2
     const val LOCATION_SERVICE_TAG = "Location service"
 
+    const val CHANNEL_ID = "Notification Channel"
+    const val CHANNEL_NAME = "ChannelName"
+
     const val DEFAULT_PASSWORD = "123456"
 
     const val DST_WIDTH = 400
